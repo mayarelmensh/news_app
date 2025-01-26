@@ -3,6 +3,7 @@ import 'package:news/model/category_model.dart';
 import 'package:news/ui/category/category_details.dart';
 import 'package:news/ui/drawer/drawer_home.dart';
 import 'package:news/ui/home/category_fragment.dart';
+import 'package:news/ui/home/news/search_new.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home_screen';
@@ -17,9 +18,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         appBar: AppBar(
           actions: [
-            Icon(
-              Icons.search,
-              color: Theme.of(context).primaryColor,
+            IconButton(
+              icon: Icon(Icons.search),
+              color: Theme.of(context).indicatorColor,
+              onPressed: () {
+                Navigator.of(context).pushNamed(SearchNew.routeName);
+              },
             ),
           ],
           title: Text(
@@ -32,9 +36,10 @@ class _HomeScreenState extends State<HomeScreen> {
           child: DrawerHome(drawerOnClicked: drawerOnClicked),
         ),
         body: selectedCategory == null
-            ? CategoryFragment(onViewAllClicked: onViewAllClicked)
+            ? CategoryFragment(
+                onViewAllClicked: onViewAllClicked) //stay in home screen
             : CategoryDetails(
-                category: selectedCategory!,
+                category: selectedCategory!, // go to selected category
               ));
   }
 

@@ -38,4 +38,23 @@ class ApiManager {
     }
     // NewsResponse.fromJson(jsonDecode(response.body));
   }
+
+  static Future<NewsResponse> searchNew(String query) async {
+    var response = await http.get(Uri.parse(
+        'https://${ApiConstants.baseUrl}/${EndPoints.newApi}?q=$query&apiKey=${ApiConstants.apiKey}'));
+    if (response.statusCode == 200) {
+      return NewsResponse.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception('faild to load new');
+    }
+  }
 }
+
+// //GET https://newsapi.org/v2/everything?q=apple&from=2025-01-23&to=2025-01-23&sortBy=popularity&apiKey=8096832e9f874dde89a5fbfcb4d53b1b
+// getAllNesByQParameter(String qParameter){
+// Uri url=Uri.https(ApiConstants.baseUrl,EndPoints.newApi,{
+//   'apiKey' :ApiConstants.apiKey,
+//   'q': 'apple&from=2025-01-23&to=2025-01-23',
+//
+// })
+// }

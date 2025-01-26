@@ -11,6 +11,8 @@ class AppTheme {
           centerTitle: true,
           backgroundColor: Colors.white),
       textTheme: TextTheme(
+          bodyLarge: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
           labelLarge: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 16, color: Colors.black),
           labelMedium: TextStyle(fontSize: 14, color: Colors.black),
@@ -27,6 +29,8 @@ class AppTheme {
           centerTitle: true,
           backgroundColor: Colors.black),
       textTheme: TextTheme(
+          bodyLarge: TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 16, color: Colors.black),
           labelLarge: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
           labelMedium: TextStyle(fontSize: 14, color: Colors.white),
